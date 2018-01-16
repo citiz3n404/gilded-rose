@@ -7,6 +7,20 @@
   <version>1.0-SNAPSHOT</version>
   <name>gilded-rose</name>
   <url>http://maven.apache.org</url>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.eluder.coveralls</groupId>
+        <artifactId>coveralls-maven-plugin</artifactId>
+        <version>4.3.0</version>
+        <configuration>
+            <repoToken>HdGirg55ZhuhqE8IAzewZD4TSsV9oSaoH</repoToken>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+
   <dependencies>
     <dependency>
       <groupId>junit</groupId>
@@ -15,4 +29,5 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
 </project>
