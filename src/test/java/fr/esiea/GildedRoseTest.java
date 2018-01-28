@@ -87,4 +87,12 @@ public class GildedRoseTest{
         gr.updateQuality();
         assertEquals(0, gr.items[4].quality);
     }
+
+    @Test
+    public void agedbrie_gets_plus_two_of_quality_if_under_fifty_and_sellin_under_zero(){
+        gr.items[2].quality = 46;
+        gr.items[2].sellIn = -1;
+        gr.updateQuality();
+        assertEquals(48, gr.items[2].quality);
+    }
 }
