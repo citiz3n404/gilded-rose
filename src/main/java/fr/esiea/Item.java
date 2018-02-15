@@ -1,6 +1,6 @@
 package fr.esiea;
 
-public class Item {
+public abstract class Item implements Updatable{
 
     public String name;
 

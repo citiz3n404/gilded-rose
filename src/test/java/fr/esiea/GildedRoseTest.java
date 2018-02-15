@@ -3,6 +3,9 @@ package fr.esiea;
 import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
+
+import java.util.ArrayList;
+
 import static org.junit.Assert.*;
 
 public class GildedRoseTest{
@@ -10,89 +13,82 @@ public class GildedRoseTest{
 
     @Before
     public void setUp() throws Exception {
-        Item[] items = new Item[5];
-        items[0] = new Item("PotDeFleur", 10, 10);
-        items[1] = new Item("Conjured", 4, 3);
-        items[2] = new Item("Aged Brie", 10, 40);
-        items[3] = new Item("Sulfuras, Hand of Ragnaros", 10, 20);
-        items[4] = new Item("Backstage passes to a TAFKAL80ETC concert", 10, 10);
+        ArrayList<Item> items = new ArrayList();
+        items.add(new NormalItem("PotDeFleur", 10, 10));
+        items.add(new Brie());
+        items.add(new Sulfuras());
+        items.add(new BackstagePasses());
+        items.add(new NormalItem("Conjured", 20, 10));
         gr = new GildedRose(items);
     }
 
     @Test
     public void object_degrades_one_per_day(){
-        gr.items[0].quality = 10;
-        gr.updateQuality();
-        assertEquals(9, gr.items[0].quality);
+        Item i = new NormalItem("PotDeFleur", 10, 10);
+        i.update();
+        assertEquals(9, i.quality);
     }
 
     @Test
     public void when_date_has_passed_degrades_twice_faster(){
-        gr.items[0].sellIn = 0;
-        gr.items[0].quality = 10;
-        gr.updateQuality();
-        assertEquals(8, gr.items[0].quality);
+        Item i = new NormalItem("PotDeFleur", 0, 10);
+        i.update();
+        assertEquals(8, i.quality);
     }
 
     @Test
     public void agedbrie_increases_in_quality_near_sellIn_value(){
         // Under 6 of SellIn Value, it gets +1 of quality each update
-        gr.items[2].quality = 40;
-        gr.items[2].sellIn = 2;
-        gr.updateQuality();
-        assertEquals(41, gr.items[2].quality);
+        Item i = new Brie("Aged Brie", 2, 40);
+        i.update();
+        assertEquals(41, i.quality);
     }
 
     @Test
     public void quality_of_an_item_is_never_above_fifty(){
         //Beware if an object is initialized with more than fifty, it is possible.
-        gr.items[2].quality = 45;
+        gr.items.get(1).quality = 45;
         for(int i = 0; i<10; i++){
             gr.updateQuality();
         }
-        assertEquals(50, gr.items[2].quality);
+        assertEquals(50,gr.items.get(1).quality);
     }
 
     @Test
     public void sulfuras_never_has_to_be_sold_or_decrease_quality(){
-        gr.items[3].quality = 20;
-        gr.items[3].sellIn = 10;
-        for(int i = 0; i<3; i++){
-            gr.updateQuality();
+        Item i = new Sulfuras("PotDeFleur", 10, 20);
+        for(int j = 0; j<3; j++){
+            i.update();
         }
-        assertEquals(20, gr.items[3].quality);
-        assertEquals(10, gr.items[3].sellIn);
+        assertEquals(20, i.quality);
+        assertEquals(10, i.sellIn);
     }
 
     @Test
     public void backstagepasses_increases_by_two_under_ten_days(){
-        gr.items[4].sellIn = 9;
-        gr.items[4].quality = 10;
-        gr.updateQuality();
-        assertEquals(12, gr.items[4].quality);
+        Item i = new BackstagePasses("PotDeFleur", 9, 10);
+        i.update();
+        assertEquals(12, i.quality);
     }
 
     @Test
     public void backstagepasses_increases_by_three_under_five_days(){
-        gr.items[4].sellIn = 4;
-        gr.items[4].quality = 10;
-        gr.updateQuality();
-        assertEquals(13, gr.items[4].quality);
+        Item i = new BackstagePasses("PotDeFleur", 4, 10);
+        i.update();
+        assertEquals(13, i.quality);
     }
 
     @Test
     public void backtagepasses_decrease_to_zero_after_the_concert(){
-        gr.items[4].sellIn = 0;
-        gr.items[4].quality = 10;
-        gr.updateQuality();
-        assertEquals(0, gr.items[4].quality);
+        Item i = new BackstagePasses("PotDeFleur", 0, 10);
+        i.update();
+        assertEquals(0, i.quality);
     }
 
     @Test
     public void agedbrie_gets_plus_two_of_quality_if_under_fifty_and_sellin_under_zero(){
-        gr.items[2].quality = 46;
-        gr.items[2].sellIn = -1;
-        gr.updateQuality();
-        assertEquals(48, gr.items[2].quality);
+        Item i = new Brie("Aged Brie", -1, 46);
+        i.update();
+        assertEquals(48, i.quality);
     }
 }
