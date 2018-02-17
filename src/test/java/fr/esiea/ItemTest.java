@@ -9,7 +9,7 @@ public class ItemTest {
 
     @Test
     public void test_tostring(){
-        Item item = new NormalItem("nameOfTest", 10, 30);
-        assertEquals("nameOfTest, 10, 30", item.toString());
+        Item item = new Item("nameOfTest", 10, 30, 5,5);
+        assertEquals("nameOfTest, 10, 30, 5, 5.0,", item.toString());
     }
 }

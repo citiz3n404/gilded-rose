@@ -3,12 +3,12 @@ package fr.esiea;
 
 public class Brie extends Item {
 
-    public Brie(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public Brie(String name, int sellIn, int quality, int qte, double price) {
+        super(name, sellIn, quality, qte, price);
     }
 
     public Brie() {
-        super("Aged Brie",10, 10);
+        super("Aged Brie",10, 10, 10, 9.99);
     }
 
     public void update() {

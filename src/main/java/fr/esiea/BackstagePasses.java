@@ -3,17 +3,17 @@ package fr.esiea;
 
 public class BackstagePasses extends Item {
 
-    public BackstagePasses(String name, int sellIn, int quality) {
-        super(name, sellIn, quality);
+    public BackstagePasses(String name, int sellIn, int quality, int qte, double price) {
+        super(name, sellIn, quality, qte, price);
     }
 
     public BackstagePasses() {
-        super("Backstage passes to a TAFKAL80ETC concert",10, 10);
+        super("Backstage passes to a TAFKAL80ETC concert",10, 10, 10, 40.99);
     }
 
     public void update() {
         if (this.quality < 50) {
-            this.quality = this.quality + 1;
+            this.quality ++;
         }
 
         if(this.sellIn < 11){

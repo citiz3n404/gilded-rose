@@ -1,18 +1,22 @@
 package fr.esiea;
 
+import java.util.HashMap;
 
-import java.util.ArrayList;
+class GildedRose implements Runnable{
+    HashMap<String, Item> items;
 
-class GildedRose {
-    ArrayList<Item> items;
-
-    public GildedRose(ArrayList<Item> items) {
+    public GildedRose(HashMap<String, Item> items) {
         this.items = items;
     }
 
     public void updateQuality() {
-        for (Item i: items) {
+        for (Item i: items.values()) {
             i.update();
         }
+    }
+
+    @Override
+    public void run() {
+        updateQuality();
     }
 }
