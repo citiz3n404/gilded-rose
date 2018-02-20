@@ -27,13 +27,8 @@ public class Item implements Updatable{
 
     @Override
     public void update() {
-        if (this.quality > 0){
-            this.quality --;
-        }
+        if (this.quality > 0){ this.quality --; }
         this.sellIn --;
-
-        if(quality > 0 && sellIn <0){
-            quality --;
-        }
+        if(quality > 0 && sellIn <0){ quality --; }
     }
 }

@@ -12,14 +12,8 @@ public class Brie extends Item {
     }
 
     public void update() {
-        if (this.quality < 50) {
-            this.quality ++;
-        }
-
-        if(this.quality < 50 && this.sellIn <0){
-            this.quality ++;
-        }
-
+        if(this.quality < 50) { this.quality ++; }
+        if(this.quality < 50 && this.sellIn <0){ this.quality ++; }
         this.sellIn --;
     }
 }

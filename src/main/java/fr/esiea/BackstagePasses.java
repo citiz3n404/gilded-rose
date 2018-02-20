@@ -12,22 +12,10 @@ public class BackstagePasses extends Item {
     }
 
     public void update() {
-        if (this.quality < 50) {
-            this.quality ++;
-        }
-
-        if(this.sellIn < 11){
-            this.quality ++;
-        }
-        if(this.sellIn < 6){
-            this.quality ++;
-        }
-
+        if (this.quality < 50) { this.quality ++; }
+        if(this.sellIn < 11){ this.quality ++; }
+        if(this.sellIn < 6){ this.quality ++; }
         this.sellIn --;
-
-        if(this.sellIn <0){
-            quality = 0;
-        }
-
+        if(this.sellIn <0){ quality = 0; }
     }
 }

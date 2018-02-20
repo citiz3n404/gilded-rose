@@ -44,8 +44,8 @@ list_items
 Enfin pour observer la liste des différents items disponibles au format Json il suffit de se rendre sur l'adresse `list_items`.
 
 ## Membres du projet
-* CHAFFOT Anthony
-* LE HOLLOCO Jean Antoine
-* OUMOURI ASSOUMANI Daroui Dine
-* PERRAULT William
-* RASNER Amin
+* CHAFFOT Anthony ([NightWolfRobot](https://github.com/NightWolfRobot "NightWolfRobot"))
+* LE HOLLOCO Jean Antoine ([LeHolloco](https://github.com/LeHolloco "LeHolloco"))
+* OUMOURI ASSOUMANI Daroui Dine ([daroui27](https://github.com/daroui27 "daroui27"))
+* PERRAULT William ([Timezer](https://github.com/Timezer "Timezer"))
+* RASNER Amin ([AminRas](https://github.com/AminRas "AminRas"))
