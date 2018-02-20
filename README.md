@@ -26,6 +26,10 @@ Pour ajouter un item il faut préciser les paramètres suivants :
 - quantity (quantité disponible)
 - price (prix de l'item à l'unité)
 
+> **Note:** Si on ajoute un produit avec le même nom qu'un déjà présent dans la base de donnée, cela incrémente juste la quantité du produit disponible.
+
+> **Attention:** Tous les paramètres sont *OBLIGATOIRES*. Une page d'erreur est affichée s'ils ne sont pas tous présents.
+
 ### Buy item
 ```
 buy_item?name=coquelicot&quantity=2
@@ -42,6 +46,8 @@ list_items
 ```
 
 Enfin pour observer la liste des différents items disponibles au format Json il suffit de se rendre sur l'adresse `list_items`.
+
+> **Note:** Toutes les 15 min l'ensemble des produits est mis à jour.
 
 ## Membres du projet
 * CHAFFOT Anthony ([NightWolfRobot](https://github.com/NightWolfRobot "NightWolfRobot"))
