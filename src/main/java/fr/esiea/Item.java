@@ -8,6 +8,8 @@ public class Item  extends Buyable implements Updatable{
 
     public int quality;
 
+    public static final int MAX_QUALITY = 50;
+
     //**************************************************************************
     //   CONSTRUCTOR
     //**************************************************************************
@@ -30,9 +32,38 @@ public class Item  extends Buyable implements Updatable{
 
     @Override
     public void update() {
-        if (this.quality > 0){ this.quality --; }
-        this.sellIn --;
-        if(quality > 0 && sellIn <0){ quality --; }
+        if (qualityCanBeDecreased()){ decreaseQuality(); }
+        deacreseSellIn();
+        if(qualityCanBeDecreased() && sellInDateIsOver()){ decreaseQuality(); }
+    }
+
+
+    public boolean qualityCanBeDecreased(){
+        return quality > 0;
+    }
+
+    public boolean qualityCanBeIncreased(){
+        return this.quality +1 <= MAX_QUALITY;
+    }
+
+    public void decreaseQuality(){
+        if (qualityCanBeDecreased()){
+            this.quality --;
+        }
+    }
+
+    public void increaseQuality(){
+        if (qualityCanBeIncreased()){
+            this.quality ++;
+        }
+    }
+
+    public boolean sellInDateIsOver(){
+        return sellIn<0;
+    }
+
+    public void deacreseSellIn(){
+        sellIn --;
     }
 
 
