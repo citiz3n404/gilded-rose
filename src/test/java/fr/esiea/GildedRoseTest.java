@@ -25,14 +25,14 @@ public class GildedRoseTest{
     public void object_degrades_one_per_day(){
         Item i = new Item("PotDeFleur", 10, 10, 5,5);
         i.update();
-        assertEquals(9, i.quality);
+        assertEquals(9, i.getQuality());
     }
 
     @Test
     public void when_date_has_passed_degrades_twice_faster(){
         Item i = new Item("PotDeFleur", 0, 10, 5,5);
         i.update();
-        assertEquals(8, i.quality);
+        assertEquals(8, i.getQuality());
     }
 
     @Test
@@ -40,17 +40,17 @@ public class GildedRoseTest{
         // Under 6 of SellIn Value, it gets +1 of quality each update
         Item i = new ItemBrie("Aged ItemBrie", 2, 40, 5,5);
         i.update();
-        assertEquals(41, i.quality);
+        assertEquals(41, i.getQuality());
     }
 
     @Test
     public void quality_of_an_item_is_never_above_fifty(){
         //Beware if an object is initialized with more than fifty, it is possible.
-        gr.items.get("Aged ItemBrie").quality = 45;
+        gr.items.get("Aged ItemBrie").setQuality(45);;
         for(int i = 0; i<10; i++){
             gr.updateQuality();
         }
-        assertEquals(50,gr.items.get("Aged ItemBrie").quality);
+        assertEquals(50,gr.items.get("Aged ItemBrie").getQuality());
     }
 
     @Test
@@ -59,41 +59,42 @@ public class GildedRoseTest{
         for(int j = 0; j<3; j++){
             i.update();
         }
-        assertEquals(20, i.quality);
-        assertEquals(10, i.sellIn);
+        assertEquals(20, i.getQuality());
+        assertEquals(10, i.getSellIn());
     }
 
     @Test
     public void backstagepasses_increases_by_two_under_ten_days(){
         Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 9, 10, 5,5);
         i.update();
-        assertEquals(12, i.quality);
+        assertEquals(12, i.getQuality());
     }
 
     @Test
     public void backstagepasses_increases_by_three_under_five_days(){
         Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 4, 10, 5,5);
         i.update();
-        assertEquals(13, i.quality);
+        assertEquals(13, i.getQuality());
     }
 
     @Test
     public void backtagepasses_decrease_to_zero_after_the_concert(){
         Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
         i.update();
-        assertEquals(0, i.quality);
+        assertEquals(0, i.getQuality());
     }
 
     @Test
     public void agedbrie_gets_plus_two_of_quality_if_under_fifty_and_sellin_under_zero(){
         Item i = new ItemBrie("Aged ItemBrie", -1, 46, 5,5);
         i.update();
-        assertEquals(48, i.quality);
+        assertEquals(48, i.getQuality());
     }
 
     @Test
     public void runTest(){
         gr.run();
-        assertEquals(gr.items.get("PotDeFleur").sellIn, 9);
+        assertEquals(gr.items.get("PotDeFleur").getSellIn(), 9);
     }
+
 }

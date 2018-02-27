@@ -55,12 +55,12 @@ public class SpringWebApplication {
             return "Impossible, l'item demandé n'existe pas ou n'est plus disponible.";
         }
         else{
-            if(db.get(name).quantity < quantity){
+            if(db.get(name).getQuantity() < quantity){
                 return "Impossible l'article n'est pas disponible en quantité suffisante.";
             }
             else{
-                db.get(name).quantity -= quantity;
-                if(db.get(name).quantity == 0){
+                db.get(name).lowerQuantityBy(quantity);
+                if(db.get(name).getQuantity() == 0){
                     db.remove(name);
                 }
                 return "Achat effectué ! ["+quantity+" "+name+"]";
@@ -75,7 +75,7 @@ public class SpringWebApplication {
         Item i;
         if(name.equals("Backstage passes to a TAFKAL80ETC concert")){
             i = new ItemBackstagePasses(name, sellIn, quality, qte, price);
-        }else if(name.equals("Aged ItemBrie")){
+        }else if(name.equals("Aged Brie")){
             i = new ItemBrie(name, sellIn, quality, qte, price);
         }else if(name.equals("Sulfuras, Hand of Ragnaros")){
             i = new ItemSulfuras(name, sellIn, quality, qte, price);
@@ -84,7 +84,7 @@ public class SpringWebApplication {
         }
 
         if (db.containsKey(name)){
-            db.get(name).quantity += qte;
+            db.get(name).lowerQuantityBy(qte);
             return "Nous venons d'ajouter "+qte+" à votre produit.";
         } else {
             db.put(name, i);

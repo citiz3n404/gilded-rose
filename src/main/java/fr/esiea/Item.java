@@ -2,11 +2,9 @@ package fr.esiea;
 
 public class Item  extends Buyable implements Updatable{
 
-    public String name;
-
-    public  int sellIn;
-
-    public int quality;
+    private     String  name;
+    private     int     sellIn;
+    private     int     quality;
 
     public static final int MAX_QUALITY = 50;
 
@@ -15,9 +13,9 @@ public class Item  extends Buyable implements Updatable{
     //**************************************************************************
     public Item(String name, int sellIn, int quality, int quantity, double price) {
         super(quantity, price);
-        this.name = name;
-        this.sellIn = sellIn;
-        this.quality = quality;
+        this.name       = name;
+        this.sellIn     = sellIn;
+        this.quality    = quality;
     }
 
 
@@ -32,27 +30,36 @@ public class Item  extends Buyable implements Updatable{
 
     @Override
     public void update() {
-        if (qualityCanBeDecreased()){ decreaseQuality(); }
+        decreaseQualitySafely();
         deacreseSellIn();
-        if(qualityCanBeDecreased() && sellInDateIsOver()){ decreaseQuality(); }
+        if(sellInDateIsOver()){
+            decreaseQualitySafely();
+        }
     }
 
-
-    public boolean qualityCanBeDecreased(){
+    private boolean qualityCanBeDecreased(){
         return quality > 0;
     }
 
-    public boolean qualityCanBeIncreased(){
+    private boolean qualityCanBeIncreased(){
         return this.quality +1 <= MAX_QUALITY;
     }
 
     public void decreaseQuality(){
+        this.quality --;
+    }
+
+    public void decreaseQualitySafely(){
         if (qualityCanBeDecreased()){
             this.quality --;
         }
     }
 
     public void increaseQuality(){
+        this.quality ++;
+    }
+
+    public void increaseQualitySafely(){
         if (qualityCanBeIncreased()){
             this.quality ++;
         }

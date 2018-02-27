@@ -19,10 +19,10 @@ public class ItemBackstagePasses extends Item {
     //   METHODS
     //**************************************************************************
     public void update() {
-        if (this.quality < 50) { this.quality ++; }
-        if(this.sellIn < 11){ this.quality ++; }
-        if(this.sellIn < 6){ this.quality ++; }
-        this.sellIn --;
-        if(this.sellIn <0){ quality = 0; }
+        this.increaseQuality();
+        if(this.getSellIn() < 11){ this.increaseQualitySafely(); }
+        if(this.getSellIn() < 6){ this.increaseQualitySafely(); }
+        deacreseSellIn();
+        if(sellInDateIsOver()){ this.setQuality(0);}
     }
 }

@@ -3,9 +3,8 @@ package fr.esiea;
 
 public abstract class Buyable {
 
-    public int quantity;
-
-    public double price;
+    private     int     quantity;
+    private     double  price;
 
     //**************************************************************************
     //   CONSTRUCTOR
