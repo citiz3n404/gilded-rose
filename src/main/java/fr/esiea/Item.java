@@ -1,6 +1,6 @@
 package fr.esiea;
 
-public class Item implements Updatable{
+public class Item  extends Buyable implements Updatable{
 
     public String name;
 
@@ -8,21 +8,16 @@ public class Item implements Updatable{
 
     public int quality;
 
-    public int quantity;
-
-    public double price;
-
     public Item(String name, int sellIn, int quality, int quantity, double price) {
+        super(quantity, price);
         this.name = name;
         this.sellIn = sellIn;
         this.quality = quality;
-        this.quantity = quantity;
-        this.price = price;
     }
 
     @Override
     public String toString() {
-        return this.name + ", " + this.sellIn + ", " + this.quality+ ", "+ this.quantity+", "+this.price+",";
+        return this.name + ", " + this.sellIn + ", " + this.quality+ ", "+super.toString();
     }
 
     @Override
