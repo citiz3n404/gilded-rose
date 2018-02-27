@@ -25,6 +25,31 @@ public abstract class Buyable {
         return this.quantity+", "+this.price+",";
     }
 
+    public void lowerQuantityBy(int i){
+        if (quantityCanBeLoweredBy(i)) {
+            this.quantity -= i;
+        }
+    }
+
+    public void lowerQuantity(){
+        this.quantity --;
+    }
+
+    public boolean quantityCanBeLowered(){
+        return quantity-1 >=0;
+    }
+
+    public void increaseQuantity(int i){
+        this.quantity += i;
+    }
+
+    public boolean quantityCanBeLoweredBy(int i){
+        return quantity -i >= 0;
+    }
+
+    public void addToQuantity(int i){
+        this.quantity += i;
+    }
 
     //**************************************************************************
     //   SETTERS/GETTERS
