@@ -1,16 +1,16 @@
 package fr.esiea;
 
 
-public class BackstagePasses extends Item {
+public class ItemBackstagePasses extends Item {
 
     //**************************************************************************
     //   CONSTRUCTOR
     //**************************************************************************
-    public BackstagePasses(String name, int sellIn, int quality, int qte, double price) {
+    public ItemBackstagePasses(String name, int sellIn, int quality, int qte, double price) {
         super(name, sellIn, quality, qte, price);
     }
 
-    public BackstagePasses() {
+    public ItemBackstagePasses() {
         super("Backstage passes to a TAFKAL80ETC concert",10, 10, 10, 40.99);
     }
 

@@ -1,16 +1,16 @@
 package fr.esiea;
 
 
-public class Brie extends Item {
+public class ItemBrie extends Item {
 
     //**************************************************************************
     //   CONSTRUCTOR
     //**************************************************************************
-    public Brie(String name, int sellIn, int quality, int qte, double price) {
+    public ItemBrie(String name, int sellIn, int quality, int qte, double price) {
         super(name, sellIn, quality, qte, price);
     }
 
-    public Brie() {
+    public ItemBrie() {
         super("Aged Brie",10, 10, 10, 9.99);
     }
 

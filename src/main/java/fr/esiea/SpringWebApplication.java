@@ -74,11 +74,11 @@ public class SpringWebApplication {
 
         Item i;
         if(name.equals("Backstage passes to a TAFKAL80ETC concert")){
-            i = new BackstagePasses(name, sellIn, quality, qte, price);
-        }else if(name.equals("Aged Brie")){
-            i = new Brie(name, sellIn, quality, qte, price);
+            i = new ItemBackstagePasses(name, sellIn, quality, qte, price);
+        }else if(name.equals("Aged ItemBrie")){
+            i = new ItemBrie(name, sellIn, quality, qte, price);
         }else if(name.equals("Sulfuras, Hand of Ragnaros")){
-            i = new Sulfuras(name, sellIn, quality, qte, price);
+            i = new ItemSulfuras(name, sellIn, quality, qte, price);
         }else{
             i = new Item(name, sellIn, quality,qte, price);
         }

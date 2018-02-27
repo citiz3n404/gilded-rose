@@ -75,8 +75,8 @@ public class SpringWebApplicationTest {
 
     @Test
     public void add_brie(){
-        String str = swa.addItem("Aged Brie", 1, 10,2, 20.2);
-        assertEquals("Nous avons ajouté Aged Brie à notre liste de produits.", str);
+        String str = swa.addItem("Aged ItemBrie", 1, 10,2, 20.2);
+        assertEquals("Nous avons ajouté Aged ItemBrie à notre liste de produits.", str);
     }
 
     @Test
