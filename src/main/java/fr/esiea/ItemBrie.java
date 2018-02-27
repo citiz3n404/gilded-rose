@@ -24,6 +24,6 @@ public class ItemBrie extends Item {
         if(sellInDateIsOver()){
             this.increaseQualitySafely();
         }
-        deacreseSellIn();
+        decreseSellIn();
     }
 }

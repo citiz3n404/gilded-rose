@@ -7,6 +7,9 @@ Le projet reprend les spécifications suivantes :
 - https://github.com/emilybache/GildedRose-Refactoring-Kata/blob/master/GildedRoseRequirements.txt
 - https://github.com/ledoyen/tp-java/tree/master/projet/4A_2018
 
+## Architecture
+![UML Guilded-rose](https://i.imgur.com/a6U9QJ9.png)
+
 ## Spring-boot
 Pour le projet on a donc 3 adresses pour nous permettre d'effectuer les differentes tâches:
 * `/buy_item`
@@ -46,8 +49,35 @@ list_items
 ```
 
 Enfin pour observer la liste des différents items disponibles au format Json il suffit de se rendre sur l'adresse `list_items`.
-
 > **Note:** Toutes les 15 min l'ensemble des produits est mis à jour.
+
+## Scénario
+On va successivement tester les fonctionnalités. (Il va s'agir de copier/coller les instructions suivantes dans le navigateur)
+```
+add_item?name=Coquelicot&sellin=10&quality=40&quantity=5&price=30.99
+add_item?name=Aged%20Brie&sellin=20&quality=10&quantity=12&price=4.99
+add_item?name=Sulfuras&sellin=20&quality=80&quantity=1&price=50000
+add_item?name=Backstage&sellin=10&quality=20&quantity=5&price=50.55
+```
+
+On peut afficher ce que l'on vient d'ajouter avec ceci :
+```
+list_items
+```
+
+Ensuite on va ajouter de nouveau le même item ce qui aura pour effet d'ajouter la quantité précisé au premier.
+```
+add_item?name=Coquelicot&sellin=10&quality=40&quantity=5&price=30.99
+list_items
+```
+
+On peut maintenant essayer d'acheter un item par exemple deux Coquelicots.
+```
+buy_item?name=coquelicot&quantity=2
+```
+
+On là encore observer que le nombre diminue et si on répète l'opération, on pourra observer qu'il arrive un moment où l'on ne peut plus acheter. Il n'y a en effet plus de stock.
+> **Note:** Il est possible d'observer des comportements spécifiques en agissant sur les items spéciaux qui ont surchargé les méthodes update().
 
 ## Membres du projet
 * CHAFFOT Anthony ([NightWolfRobot](https://github.com/NightWolfRobot "NightWolfRobot"))

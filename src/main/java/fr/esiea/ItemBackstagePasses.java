@@ -23,7 +23,7 @@ public class ItemBackstagePasses extends Item {
         this.increaseQuality();
         if(this.getSellIn() < 11){ this.increaseQualitySafely(); }
         if(this.getSellIn() < 6){ this.increaseQualitySafely(); }
-        deacreseSellIn();
+        decreseSellIn();
         if(sellInDateIsOver()){ this.setQuality(0);}
     }
 }

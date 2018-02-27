@@ -31,7 +31,7 @@ public class Item  extends Buyable implements Updatable{
     @Override
     public void update() {
         decreaseQualitySafely();
-        deacreseSellIn();
+        decreseSellIn();
         if(sellInDateIsOver()){
             decreaseQualitySafely();
         }
@@ -69,7 +69,7 @@ public class Item  extends Buyable implements Updatable{
         return sellIn<0;
     }
 
-    public void deacreseSellIn(){
+    public void decreseSellIn(){
         sellIn --;
     }
 
