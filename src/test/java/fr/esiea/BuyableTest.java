@@ -17,7 +17,7 @@ public class BuyableTest {
         items.put("PotDeFleur", new Item("PotDeFleur", 10, 10, 5, 5));
         items.put("Aged Brie", new ItemBrie());
         items.put("Sulfuras, Hand of Ragnaros", new ItemSulfuras());
-        items.put("Backstage passes to a TAFKAL80ETC concert", new ItemBackstagePasses());
+        items.put("Backstage passes to a TAFKAL80ETC concert", new ItemBackstagePass());
         items.put("Conjured", new Item("Conjured", 20, 10, 5,5));
         gr = new GildedRose(items);
     }

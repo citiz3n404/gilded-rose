@@ -73,7 +73,7 @@ list_items
 
 On peut maintenant essayer d'acheter un item par exemple deux Coquelicots.
 ```
-buy_item?name=coquelicot&quantity=2
+buy_item?name=Coquelicot&quantity=2
 ```
 
 On là encore observer que le nombre diminue et si on répète l'opération, on pourra observer qu'il arrive un moment où l'on ne peut plus acheter. Il n'y a en effet plus de stock.

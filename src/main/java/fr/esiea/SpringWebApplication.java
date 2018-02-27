@@ -74,7 +74,7 @@ public class SpringWebApplication {
 
         Item i;
         if(name.equals("Backstage passes to a TAFKAL80ETC concert")){
-            i = new ItemBackstagePasses(name, sellIn, quality, qte, price);
+            i = new ItemBackstagePass(name, sellIn, quality, qte, price);
         }else if(name.equals("Aged Brie")){
             i = new ItemBrie(name, sellIn, quality, qte, price);
         }else if(name.equals("Sulfuras, Hand of Ragnaros")){

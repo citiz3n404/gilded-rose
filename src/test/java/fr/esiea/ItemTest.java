@@ -1,6 +1,5 @@
 package fr.esiea;
 
-import junit.framework.TestCase;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -18,7 +17,7 @@ public class ItemTest {
         items.put("PotDeFleur", new Item("PotDeFleur", 10, 10, 5, 5));
         items.put("Aged Brie", new ItemBrie());
         items.put("Sulfuras, Hand of Ragnaros", new ItemSulfuras());
-        items.put("Backstage passes to a TAFKAL80ETC concert", new ItemBackstagePasses());
+        items.put("Backstage passes to a TAFKAL80ETC concert", new ItemBackstagePass());
         items.put("Conjured", new Item("Conjured", 20, 10, 5,5));
         gr = new GildedRose(items);
     }
@@ -67,21 +66,21 @@ public class ItemTest {
 
     @Test
     public void backstagepasses_increases_by_two_under_ten_days(){
-        Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 9, 10, 5,5);
+        Item i = new ItemBackstagePass("Backstage passes to a TAFKAL80ETC concert", 9, 10, 5,5);
         i.update();
         assertEquals(12, i.getQuality());
     }
 
     @Test
     public void backstagepasses_increases_by_three_under_five_days(){
-        Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 4, 10, 5,5);
+        Item i = new ItemBackstagePass("Backstage passes to a TAFKAL80ETC concert", 4, 10, 5,5);
         i.update();
         assertEquals(13, i.getQuality());
     }
 
     @Test
     public void backtagepasses_decrease_to_zero_after_the_concert(){
-        Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
+        Item i = new ItemBackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
         i.update();
         assertEquals(0, i.getQuality());
     }
@@ -101,20 +100,20 @@ public class ItemTest {
 
     @Test
     public void itemGetter(){
-        Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
+        Item i = new ItemBackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
         assertEquals(i.getName(), "Backstage passes to a TAFKAL80ETC concert");
     }
 
     @Test
     public void itemSetter(){
-        Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
+        Item i = new ItemBackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
         i.setName("Toto");
         assertEquals(i.getName(), "Toto");
     }
 
     @Test
     public void sellInSetter(){
-        Item i = new ItemBackstagePasses("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
+        Item i = new ItemBackstagePass("Backstage passes to a TAFKAL80ETC concert", 0, 10,5,5);
         i.setSellIn(12);
         assertEquals(i.getSellIn(), 12);
     }
