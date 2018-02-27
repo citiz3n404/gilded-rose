@@ -11,8 +11,8 @@ public abstract class Buyable {
     //**************************************************************************
 
     public Buyable(int quantity, double price){
-        this.quantity = quantity;
-        this.price = price;
+        this.quantity   = quantity;
+        this.price      = price;
     }
 
 
@@ -38,15 +38,15 @@ public abstract class Buyable {
         return quantity-1 >=0;
     }
 
-    public void increaseQuantity(int i){
-        this.quantity += i;
+    public void increaseQuantity(){
+        this.quantity ++;
     }
 
     public boolean quantityCanBeLoweredBy(int i){
         return quantity -i >= 0;
     }
 
-    public void addToQuantity(int i){
+    public void increaseQuantityBy(int i){
         this.quantity += i;
     }
 

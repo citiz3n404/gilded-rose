@@ -18,6 +18,7 @@ public class ItemBrie extends Item {
     //**************************************************************************
     //   METHODS
     //**************************************************************************
+    @Override
     public void update() {
         increaseQualitySafely();
         if(sellInDateIsOver()){

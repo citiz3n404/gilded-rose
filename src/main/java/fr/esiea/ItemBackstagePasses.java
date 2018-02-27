@@ -18,6 +18,7 @@ public class ItemBackstagePasses extends Item {
     //**************************************************************************
     //   METHODS
     //**************************************************************************
+    @Override
     public void update() {
         this.increaseQuality();
         if(this.getSellIn() < 11){ this.increaseQualitySafely(); }
