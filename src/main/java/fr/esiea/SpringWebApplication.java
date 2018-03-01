@@ -107,7 +107,7 @@ public class SpringWebApplication {
         }
 
         if (db.containsKey(name)){
-            db.get(name).lowerQuantityBy(qte);
+            db.get(name).increaseQuantityBy(qte);
             return "Nous venons d'ajouter "+qte+" à votre produit.";
         } else {
             db.put(name, i);
