@@ -85,3 +85,4 @@ On là encore observer que le nombre diminue et si on répète l'opération, on 
 * OUMOURI ASSOUMANI Daroui Dine ([daroui27](https://github.com/daroui27 "daroui27"))
 * PERRAULT William ([Timezer](https://github.com/Timezer "Timezer"))
 * RASNER Amin ([AminRas](https://github.com/AminRas "AminRas"))
+* Frank Pissochet
